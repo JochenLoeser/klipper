@@ -16,7 +16,7 @@ class SensorHx711(object):
         # Create polynom
         try:
             data_str = config.get('calib_data', '0,0;1,1')
-            data = np.array(np.mat(data_str))
+            data = np.array(np.asmatrix(data_str))
             fit = np.polyfit(data[:,0], data[:,1], 1)
             self._line = np.poly1d(fit)
         except:
